@@ -16,12 +16,12 @@ namespace hocltwin6.Models
         }
 
         [Key]
-        [StringLength(10)]
+        [StringLength(10), Required]
         public string sohd { get; set; }
 
         public DateTime? ngaylaphd { get; set; }
 
-        [StringLength(50)]
+        [StringLength(50), Required]
         public string tenkh { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -22,7 +22,7 @@ namespace hocltwin6.Controllers
             Models.hanghoa hh = db.hanghoas.Find(mahang);
             if(hh != null)
             {
-                Models.hoadon dh = Session["Donhang"] as Models.hoadon;             
+                Models.hoadon dh =  new Models.hoadon();             
                 Models.chitiethoadon ct = new Models.chitiethoadon();
                 ct.hanghoa = hh;
                 ct.mahang = hh.mahang;
