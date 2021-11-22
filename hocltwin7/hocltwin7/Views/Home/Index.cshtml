@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<div class="form-group row">
+    <div class="col-md-2">
+        So a:
+    </div>
+    <div class="col-md-10">
+        <input type="text" id="idSoa" class="form-control"/>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-2">
+        So b:
+    </div>
+    <div class="col-md-10">
+        <input type="text" id="idSob" class="form-control" />
+    </div>
+</div> 
+
+<div class="form-group row">
+    <div class="col-md-2">
+        Ket qua:
+    </div>
+    <div class="col-md-10">
+        <input type="text" id="idSokq" class="form-control" />
+    </div>
+</div>
+
+<p>
+    <input type="button" id="idCong" value="Cong" class="btn btn-primary" />
+</p>
+<script type="text/javascript">
+    $().ready(function () {
+        $('#idCong').click(function () {
+            const a = $('#idSoa').val();
+            const b = $('#idSob').val();
+            const c = parseFloat(a) + parseFloat(b);
+            $('#idSokq').val(c);
+        })
+    })
+</script>
+
