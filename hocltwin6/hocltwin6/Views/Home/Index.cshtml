@@ -1,0 +1,56 @@
+﻿@model IEnumerable<hocltwin6.Models.hanghoa>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>Danh sach hang hoa</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.mahang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tenhang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dvt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dongia)
+        </th>
+        <th>
+            So luong
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <form action="@Url.Content("/Home/chonHangHoa")" method="post">
+    <td>
+        <input type="hidden" name="mahang" value="@item.mahang" />
+        @Html.DisplayFor(modelItem => item.mahang)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.tenhang)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.dvt)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.dongia)
+    </td>
+    <td>
+        <input type="number" name="soluong" value="1" />
+    </td>
+    <td>
+        <input type="submit" value="Choose" class="btn btn-primary" />
+    </td>
+    </form>
+</tr>
+}
+
+</table>

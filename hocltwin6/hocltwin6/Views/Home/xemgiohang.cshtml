@@ -1,0 +1,81 @@
+﻿@model hocltwin6.Models.hoadon
+
+@{
+    ViewBag.Title = "xemgiohang";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<h2>Danh sach hang hoa da chon mua</h2>
+<div>
+    @Html.ActionLink("Tro ve", "Index",null, new {@Class="btn btn-primary" })
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ma hang</th>
+            <th>Ten hang</th>
+            <th>Don vi tinh</th>
+            <th>Don gia</th>
+            <th>So luong</th>
+            <th>THanh tien</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.chitiethoadons)
+            {
+                <tr>
+                    <td>@item.mahang</td>
+                    <td>@item.hanghoa.tenhang</td>
+                    <td>@item.hanghoa.dvt</td>
+                    <td>@item.dongia</td>
+                    <td>@item.soluong</td>
+                    <td>@(item.dongia * item.soluong)</td>                    
+                </tr>
+            }
+    </tbody>
+</table>
+
+
+<hr/>
+<h2>Lap don hang</h2>
+
+@using (Html.BeginForm("lapDonHang", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+   
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.sohd, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.sohd, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.sohd, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ngaylaphd, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ngaylaphd, new { htmlAttributes = new { @class = "form-control",@type="date" } })
+            @Html.ValidationMessageFor(model => model.ngaylaphd, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.tenkh, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.tenkh, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.tenkh, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Lap don hang" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+}
+
+
